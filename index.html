@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title>IRCS HR Database</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+	</head>
+    
+	<body>
+        
+<!--        <img src="ircs-logo.png" alt="IRCS Logo" width="150" height="100">-->
+        
+<!--
+        <br>
+        <h1 align="center">Officiating Position</h1>
+        <br><br><hr> 
+-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+             <a class="navbar-brand" href="#">IRCS HR Database</a>
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" id="home" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" id="personal-btn" href="#">Personal Information</a>
+                    <a class="nav-item nav-link" id="officiating-btn" href="#">Officiating Position</a>
+                    <a class="nav-item nav-link" id="contract-btn" href="#">Contract</a>
+                    <a class="nav-item nav-link" id="experience-btn" href="#">Experience</a>
+                    <a class="nav-item nav-link" id="promotion-btn" href="#">Promotion</a>
+                    <a class="nav-item nav-link" id="salary-btn" href="#">Salary and Allowances</a>
+
+                </div>
+            </div>
+            <a class="nav-item nav-link" id="login-btn" href="#" align="right">Login</a>
+        </nav>
+        
+        <br><br><br>
+        <div class="container-fluid" id="officiating-form" style="display: none"> <br><br><br>
+            <form class="form-horizontal" action="./submit.php" method="post">
+                <div class="form-group">
+
+                    <label class="control-label col-sm-2">Employee Code</label>
+                    <input class="form-control" type="text" placeholder="" name="employee_code"><br>
+
+                    <label class="control-label col-sm-2">Officiating Position</label>
+                    <input class="form-control" type="text" name="officiating_pos"><br>
+
+                    <label class="control-label col-sm-2">Start Date</label>
+                    <input class="form-control" type="date" placeholder="DD-MM-YYYY" name="start_date"><br>
+
+                    <label class="control-label col-sm-2">End Date</label>
+                    <input class="form-control" type="date" placeholder="DD-MM-YYYY" name="end_date"><br>
+
+                    <div align="center"><button class="btn btn-primary" type="submit" name="submit" value="officiating-fill">Submit</button></div><br>
+
+                </div>
+            </form>
+        </div>
+        
+        <div class="container-fluid" id="contract-form" style="display: none"> <br><br><br>
+            <form class="form-horizontal" action="./submit.php" method="post">
+                <div class="form-group">
+
+                    <label class="control-label col-sm-2">Employee Code</label>
+                    <input class="form-control" type="text" placeholder="" name="employee_code"><br>
+
+                    <label class="control-label col-sm-2">Start Date</label>
+                    <input class="form-control" type="date" placeholder="DD-MM-YYYY" name="start_date"><br>
+
+                    <label class="control-label col-sm-2">End Date</label>
+                    <input class="form-control" type="date" placeholder="DD-MM-YYYY" name="end_date"><br>
+                    
+                    <label class="control-label col-sm-2">Details of Promotion</label>
+                    <input class="form-control" type="text" name="details"><br>
+
+                    <div align="center"><button class="btn btn-primary" type="submit" name="submit">Submit</button></div><br>
+
+                </div>
+            </form>
+        </div>
+        
+        <div class="container-fluid" id="experience-form" style="display: none"> <br><br><br>
+            <form class="form-horizontal" action="./submit.php" method="post">
+                <div class="form-group">
+
+                    <label class="control-label col-sm-2">Employee Code</label>
+                    <input class="form-control" type="text" placeholder="" name="employee_code"><br>
+
+                    <label class="control-label col-sm-2">Experience With IRCS</label>
+                    <input class="form-control" type="text" name="with_ircs"><br>
+
+                    <label class="control-label col-sm-2">Experience outside IRCS</label>
+                    <input class="form-control" type="text" name="outside_ircs"><br>
+
+                    <label class="control-label col-sm-2">Total Experience</label>
+                    <input class="form-control" type="text" name="total"><br>
+
+                    <div align="center"><button class="btn btn-primary" type="submit" name="submit" value="experience-fill">Submit</button></div><br>
+
+                </div>
+            </form>
+        </div>
+        
+        <div class="container-fluid" id="login-form" style="display: none"> <br><br><br>
+            <form class="form-horizontal" action="./login.php" method="post">
+                <div class="form-group">
+
+                    <label class="control-label col-sm-2">Employee Code</label>
+                    <input class="form-control" type="text" placeholder="" name="employee_code"><br>
+
+                    <label class="control-label col-sm-2">Password</label>
+                    <input class="form-control" type="password" name="with_ircs"><br>
+
+                    <div align="center"><button class="btn btn-primary" type="submit" name="submit" value="experience-fill">Submit</button></div><br>
+
+                </div>
+            </form>
+        </div>
+        
+        
+        <script type="text/javascript">
+            
+            $("#officiating-btn").click(function() {
+                $("#officiating-form").show();
+                $("#contract-form").hide();
+                $("#experience-form").hide();
+                $("#login-form").hide();
+            });
+            
+            $("#contract-btn").click(function() {
+                $("#officiating-form").hide();
+                $("#contract-form").show();
+                $("#experience-form").hide();
+                $("#login-form").hide();
+            });
+            
+            $("#experience-btn").click(function() {
+                $("#officiating-form").hide();
+                $("#contract-form").hide();
+                $("#experience-form").show();
+                $("#login-form").hide();
+            });
+            
+            $("#login-btn").click(function() {
+                $("#officiating-form").hide();
+                $("#contract-form").hide();
+                $("#experience-form").hide();
+                $("#login-form").show();
+            });
+            
+        </script>
+	</body>
+</html>
