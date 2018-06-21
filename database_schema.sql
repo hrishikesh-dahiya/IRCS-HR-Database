@@ -39,10 +39,10 @@ CREATE TABLE `personal_information` (
     `pf_no` VARCHAR(15),
     `uan_no` VARCHAR(15),
     `last_working_day` DATE,
-    `status`
+    `status` VARCHAR(10) NOT NULL
 ) ENGINE = InnoDB;
 
-CREATE TABLE `hr-database0.1`.`Personal_Information` ( `Employee_Code` VARCHAR(20) NOT NULL , `Title` VARCHAR(10) NOT NULL , `Name` VARCHAR(30) NOT NULL , `Sex` VARCHAR(10) NOT NULL , `DOB` DATE NOT NULL , `Age` INT(5) NOT NULL , `Staff_Classification` VARCHAR(20) NOT NULL , `Designation` VARCHAR(20) NOT NULL , `Reporting_Manager` VARCHAR(30) NOT NULL , `Department` VARCHAR(20) NOT NULL , `Location` VARCHAR(20) NOT NULL , `Date_of_Joining` DATE NOT NULL , `Diversity_Status` VARCHAR(20) NOT NULL , `Educational_Qualification` VARCHAR(30) NOT NULL , `Educational_Details` VARCHAR(30) NOT NULL , `Professional_Qualification` VARCHAR(30) NOT NULL , `Present_Address` VARCHAR(50) NOT NULL , `Permenant_Address` VARCHAR(50) NOT NULL , `City` VARCHAR(20) NOT NULL , `State` VARCHAR(20) NOT NULL , `Phone` VARCHAR(15) NOT NULL , `Emergency_No` VARCHAR(15) NOT NULL , `Email` VARCHAR(20) NOT NULL , `Marital_Status` VARCHAR(20) NOT NULL , `Father/Husband_Name` VARCHAR(20) NOT NULL , `Father/Husband` ENUM('Father','Husband') NOT NULL , `Nominee_Name` VARCHAR(20) NOT NULL , `Relationship` VARCHAR(20) NOT NULL , `Bank` VARCHAR(30) NOT NULL , `IFSC_Code` VARCHAR(20) NOT NULL , `Account_No` VARCHAR(30) NOT NULL , `Aadhar` VARCHAR(15) NOT NULL , `PAN` VARCHAR(15) NOT NULL , `Passport` VARCHAR(15) NOT NULL , `PF` VARCHAR(15) NOT NULL , `UAN` VARCHAR(15) NOT NULL , `Last_Working_Day` DATE NOT NULL , PRIMARY KEY (`Employee_Code`)) ENGINE = InnoDB; 
+-- CREATE TABLE `hr-database0.1`.`Personal_Information` ( `Employee_Code` VARCHAR(20) NOT NULL , `Title` VARCHAR(10) NOT NULL , `Name` VARCHAR(30) NOT NULL , `Sex` VARCHAR(10) NOT NULL , `DOB` DATE NOT NULL , `Age` INT(5) NOT NULL , `Staff_Classification` VARCHAR(20) NOT NULL , `Designation` VARCHAR(20) NOT NULL , `Reporting_Manager` VARCHAR(30) NOT NULL , `Department` VARCHAR(20) NOT NULL , `Location` VARCHAR(20) NOT NULL , `Date_of_Joining` DATE NOT NULL , `Diversity_Status` VARCHAR(20) NOT NULL , `Educational_Qualification` VARCHAR(30) NOT NULL , `Educational_Details` VARCHAR(30) NOT NULL , `Professional_Qualification` VARCHAR(30) NOT NULL , `Present_Address` VARCHAR(50) NOT NULL , `Permenant_Address` VARCHAR(50) NOT NULL , `City` VARCHAR(20) NOT NULL , `State` VARCHAR(20) NOT NULL , `Phone` VARCHAR(15) NOT NULL , `Emergency_No` VARCHAR(15) NOT NULL , `Email` VARCHAR(20) NOT NULL , `Marital_Status` VARCHAR(20) NOT NULL , `Father/Husband_Name` VARCHAR(20) NOT NULL , `Father/Husband` ENUM('Father','Husband') NOT NULL , `Nominee_Name` VARCHAR(20) NOT NULL , `Relationship` VARCHAR(20) NOT NULL , `Bank` VARCHAR(30) NOT NULL , `IFSC_Code` VARCHAR(20) NOT NULL , `Account_No` VARCHAR(30) NOT NULL , `Aadhar` VARCHAR(15) NOT NULL , `PAN` VARCHAR(15) NOT NULL , `Passport` VARCHAR(15) NOT NULL , `PF` VARCHAR(15) NOT NULL , `UAN` VARCHAR(15) NOT NULL , `Last_Working_Day` DATE NOT NULL , PRIMARY KEY (`Employee_Code`)) ENGINE = InnoDB; 
 
 DROP TABLE IF EXISTS `contract`;
 
@@ -54,7 +54,7 @@ CREATE TABLE `contract` (
 ) ENGINE = InnoDB;
 
 
-CREATE TABLE `hr-database0.1`.`Contract` ( `Employee_Code` VARCHAR(20) NOT NULL , `Start_Date` DATE NOT NULL , `End_Date` DATE NOT NULL , `Due_for_Renewal` DATE NOT NULL ) ENGINE = InnoDB;
+-- CREATE TABLE `hr-database0.1`.`Contract` ( `Employee_Code` VARCHAR(20) NOT NULL , `Start_Date` DATE NOT NULL , `End_Date` DATE NOT NULL , `Due_for_Renewal` DATE NOT NULL ) ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `experience`;
 
@@ -66,7 +66,7 @@ CREATE TABLE `experience` (
 ) ENGINE = InnoDB;
 
 
-CREATE TABLE `hr-database0.1`.`Experience` ( `Employee_Code` VARCHAR(20) NOT NULL , `With_IRCS` VARCHAR(20) NOT NULL , `Outside_IRCS` VARCHAR(20) NOT NULL , `Total` VARCHAR(20) NOT NULL ) ENGINE = InnoDB; 
+-- CREATE TABLE `hr-database0.1`.`Experience` ( `Employee_Code` VARCHAR(20) NOT NULL , `With_IRCS` VARCHAR(20) NOT NULL , `Outside_IRCS` VARCHAR(20) NOT NULL , `Total` VARCHAR(20) NOT NULL ) ENGINE = InnoDB; 
 
 DROP TABLE IF EXISTS `promotion`;
 
@@ -77,7 +77,7 @@ CREATE TABLE `promotion` (
     `details_of_upgradation` VARCHAR(20)
 ) ENGINE = InnoDB;
 
-CREATE TABLE `hr-database0.1`.`Promotion` ( `Employee_Code` VARCHAR(20) NOT NULL , `Type` ENUM('Internal','Lateral','External') NOT NULL , `Date` DATE NOT NULL , `Details_of_Upgradation` VARCHAR(20) NOT NULL ) ENGINE = InnoDB;
+-- CREATE TABLE `hr-database0.1`.`Promotion` ( `Employee_Code` VARCHAR(20) NOT NULL , `Type` ENUM('Internal','Lateral','External') NOT NULL , `Date` DATE NOT NULL , `Details_of_Upgradation` VARCHAR(20) NOT NULL ) ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `officiating_position`;
 
@@ -89,7 +89,7 @@ CREATE TABLE `officiating_position` (
 ) ENGINE = InnoDB;
 
 
-CREATE TABLE `hr-database0.1`.`Officiating_Position` ( `Employee_Code` VARCHAR(20) NOT NULL , `Position` VARCHAR(20) NOT NULL , `Start_Date` DATE NOT NULL , `End_Date` DATE NOT NULL ) ENGINE = InnoDB;
+-- CREATE TABLE `hr-database0.1`.`Officiating_Position` ( `Employee_Code` VARCHAR(20) NOT NULL , `Position` VARCHAR(20) NOT NULL , `Start_Date` DATE NOT NULL , `End_Date` DATE NOT NULL ) ENGINE = InnoDB;
 
 
 DROP TABLE IF EXISTS `salary_allowances`;
@@ -115,11 +115,16 @@ CREATE TABLE `salary_allowances` (
     `da_arr` INT(10),
     `ex_gratia` INT(10),
     `gross_salary` INT(10),
-    
+    `pf` INT(10),
+    `future_gratuity` INT(10),
+    `monthly_cto` INT(10),
+    `monthly_cto_fg` INT(10),
+    `annual_cto` INT(10),
+    `annual_cto_fg` INT(10)    
 ) ENGINE = InnoDB;
 
 
-CREATE TABLE `hr-database0.1`.`Salary_Allowances` ( `Band` VARCHAR(20) NOT NULL , `Level` VARCHAR(20) NOT NULL , `Band_Pay` INT(10) NOT NULL , `Grade_Pay` INT(10) NOT NULL , `NPA` INT(10) NOT NULL , `SCA` INT(10) NOT NULL , `TDA_Arr` INT(10) NOT NULL , `DA` INT(10) NOT NULL , `Transport` INT(10) NOT NULL , `TDA` INT(10) NOT NULL , `HRA` INT(10) NOT NULL , `CCA` INT(10) NOT NULL , `Wash` INT(10) NOT NULL , `HCA` INT(10) NOT NULL , `EWA` INT(10) NOT NULL , `CEA` INT(10) NOT NULL , `DA_Arrears` INT(10) NOT NULL , `Ex-gratia` INT(10) NOT NULL , `Gross_Salary` INT(10) NOT NULL , `PF` INT(10) NOT NULL , `Future_gratuity` INT(10) NOT NULL , `Monthly_CTO` INT(10) NOT NULL , `Monthly_CTO_FG` INT(10) NOT NULL , `Annual_CTO` INT(10) NOT NULL , `Annual_CTO_FG` INT(10) NOT NULL ) ENGINE = InnoDB; 
+-- CREATE TABLE `hr-database0.1`.`Salary_Allowances` ( `Band` VARCHAR(20) NOT NULL , `Level` VARCHAR(20) NOT NULL , `Band_Pay` INT(10) NOT NULL , `Grade_Pay` INT(10) NOT NULL , `NPA` INT(10) NOT NULL , `SCA` INT(10) NOT NULL , `TDA_Arr` INT(10) NOT NULL , `DA` INT(10) NOT NULL , `Transport` INT(10) NOT NULL , `TDA` INT(10) NOT NULL , `HRA` INT(10) NOT NULL , `CCA` INT(10) NOT NULL , `Wash` INT(10) NOT NULL , `HCA` INT(10) NOT NULL , `EWA` INT(10) NOT NULL , `CEA` INT(10) NOT NULL , `DA_Arrears` INT(10) NOT NULL , `Ex-gratia` INT(10) NOT NULL , `Gross_Salary` INT(10) NOT NULL , `PF` INT(10) NOT NULL , `Future_gratuity` INT(10) NOT NULL , `Monthly_CTO` INT(10) NOT NULL , `Monthly_CTO_FG` INT(10) NOT NULL , `Annual_CTO` INT(10) NOT NULL , `Annual_CTO_FG` INT(10) NOT NULL ) ENGINE = InnoDB; 
 
 
 DROP TABLE IF EXISTS `credentials`;
