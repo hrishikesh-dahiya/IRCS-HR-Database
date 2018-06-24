@@ -52,42 +52,211 @@ mysqli_close($conn);
 ?>
 
 
+<!DOCTYPE html>
 <html>
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>IRCS HR Database</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <script src="jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+	</head>
+    
+	<body>
 
-    <head>
-    
-        <title></title>
-    
-    </head>
-    
-    <body>
-    
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Variable</th>
-              <th scope="col">Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-            <tr>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="#">IRCS HR Database</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <!-- <a class="nav-item nav-link active" id="home" href="#">Home <span class="sr-only">(current)</span></a> -->
+                    <a class="nav-item nav-link" id="personal-btn" href="#">Personal Information</a>
+                    <a class="nav-item nav-link" id="promotion-btn" href="#">Promotion</a>
+                    <a class="nav-item nav-link" id="contract-btn" href="#">Contract</a>
+                    <a class="nav-item nav-link" id="officiating-btn" href="#">Officiating Position</a>
+                    <a class="nav-item nav-link" id="experience-btn" href="#">Experience</a>
+                    <a class="nav-item nav-link" id="salary-btn" href="#">Salary and Allowances</a>
+                </div>
+            </div>
+            <a class="nav-item nav-link float-right" id="login-btn" href="#">Login</a>
+        </nav>
         
-    </body>
+        <br><br><br>               
+        
+        <div class="container-fluid" id="officiating-form" style="display: none">
+            
+            <br><br><br>
+            <form class="form-horizontal" action="./export.php" method="post">
+                
+                <div align="center"><button class="btn btn-primary" type="submit" name="export" value="officiating-export">Export</button></div><br>
+
+                <br><br>
+
+            </form>
+
+        </div>
+
+        
+        <div class="container-fluid" id="contract-form" style="display: none">
+            
+            <br><br><br>
+            <form class="form-horizontal" action="./export.php" method="post">
+                
+                <div align="center"><button class="btn btn-primary" type="submit" name="export" value="contract-export">Export</button></div><br>
+
+                <br><br>
+
+            </form>
+
+        </div>
+        
+        <div class="container-fluid" id="experience-form" style="display: none">
+            
+            <br><br><br>
+            <form class="form-horizontal" action="./export.php" method="post">
+                
+                <div align="center"><button class="btn btn-primary" type="submit" name="export" value="experience-export">Export</button></div><br>
+
+                <br><br>
+
+            </form>
+
+        </div>
+        
+        <div class="container-fluid" id="promotion-form" style="display: none">
+            
+            <br><br><br>
+            <form class="form-horizontal" action="./export.php" method="post">
+                
+                <div align="center"><button class="btn btn-primary" type="submit" name="export" value="promotion-export">Export</button></div><br>
+
+                <br><br>
+
+            </form>
+
+        </div>
+        
+        <div class="container-fluid" id="salary-form" style="display: none">
+            
+            <br><br><br>
+            <form class="form-horizontal" action="./export.php" method="post">
+                
+                <div align="center"><button class="btn btn-primary" type="submit" name="export" value="salary-export">Export</button></div><br>
+
+                <br><br>
+
+            </form>
+
+        </div>
+        
+        <div class="container-fluid" id="personal-form" style="display: none">
+            
+            <br><br><br>
+            <form class="form-horizontal" action="./export.php" method="post">
+                
+                <div align="center"><button class="btn btn-primary" type="submit" name="export" value="personal-export">Export</button></div><br>
+
+                <br><br>
+
+            </form>
+
+        </div>
+        
+        <script type="text/javascript">
+            
+            $("#home").click(function() {
+                $("#home").show();
+                $("#personal-form").hide();
+                $("#promotion-form").hide();
+                $("#salary-form").hide();
+                $("#officiating-form").hide();
+                $("#contract-form").hide();
+                $("#experience-form").hide();
+                $("#login-form").hide();
+            });
+            
+            $("#personal-btn").click(function() {
+                $("#home").hide();
+                $("#personal-form").show();
+                $("#promotion-form").hide();
+                $("#salary-form").hide();
+                $("#officiating-form").hide();
+                $("#contract-form").hide();
+                $("#experience-form").hide();
+                $("#login-form").hide();
+            });
+            
+            $("#promotion-btn").click(function() {
+                $("#home").hide();
+                $("#personal-form").hide();
+                $("#promotion-form").show();
+                $("#salary-form").hide();
+                $("#officiating-form").hide();
+                $("#contract-form").hide();
+                $("#experience-form").hide();
+                $("#login-form").hide();
+            });
+            
+            $("#salary-btn").click(function() {
+                $("#home").hide();
+                $("#personal-form").hide();
+                $("#promotion-form").hide();
+                $("#salary-form").show();
+                $("#officiating-form").hide();
+                $("#contract-form").hide();
+                $("#experience-form").hide();
+                $("#login-form").hide();
+            });
+            
+            $("#officiating-btn").click(function() {
+                $("#home").hide();
+                $("#personal-form").hide();
+                $("#promotion-form").hide();
+                $("#salary-form").hide();
+                $("#officiating-form").show();
+                $("#contract-form").hide();
+                $("#experience-form").hide();
+                $("#login-form").hide();
+            });
+            
+            $("#contract-btn").click(function() {
+                $("#home").hide();
+                $("#personal-form").hide();
+                $("#promotion-form").hide();
+                $("#salary-form").hide();
+                $("#officiating-form").hide();
+                $("#contract-form").show();
+                $("#experience-form").hide();
+                $("#login-form").hide();
+            });
+            
+            $("#experience-btn").click(function() {
+                $("#home").hide();
+                $("#personal-form").hide();
+                $("#promotion-form").hide();
+                $("#salary-form").hide();
+                $("#officiating-form").hide();
+                $("#contract-form").hide();
+                $("#experience-form").show();
+                $("#login-form").hide();
+            });
+            
+            $("#login-btn").click(function() {
+                $("#home").hide();
+                $("#personal-form").hide();
+                $("#promotion-form").hide();
+                $("#salary-form").hide();
+                $("#officiating-form").hide();
+                $("#contract-form").hide();
+                $("#experience-form").hide();
+                $("#login-form").show();
+            });
+
+        </script>
+	</body>
 </html>
