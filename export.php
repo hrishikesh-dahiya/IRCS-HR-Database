@@ -7,7 +7,7 @@ $db = "hr-database0.1";
 
 $conn = mysqli_connect($servername, $username, $password, $db);
 
-if(isset($_POST["export"]) || 1){
+if(isset($_POST["export"])){
 		 
     header('Content-Type: text/csv; charset=utf-8');   
     $output = fopen("php://output", "w");  
