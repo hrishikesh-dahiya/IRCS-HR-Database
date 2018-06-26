@@ -11,3 +11,5 @@ remove total field from the experience form
 in salary and allowances form, get to know which fields are to be autofilled
 
 use sessions in login interface
+
+remove primary key for Contract table employee code, we need multiple entries for same employee too
