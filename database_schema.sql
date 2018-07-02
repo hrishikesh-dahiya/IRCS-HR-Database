@@ -7,13 +7,13 @@ CREATE TABLE `personal_information` (
     `name` VARCHAR(30) NOT NULL,
     `sex` VARCHAR(10) NOT NULL,
     `dob` DATE NOT NULL,
-    `age` INT(5) NOT NULL,
     `staff_classification` VARCHAR(20),
     `designation` VARCHAR(20) NOT NULL,
     `reporting_manager` VARCHAR(30),
     `department` VARCHAR(20),
     `location` VARCHAR(20) NOT NULL,
     `date_of_joining` DATE NOT NULL,
+    `date_of_retirement` DATE NOT NULL,
     `diversity_status` VARCHAR(20),
     `educational_qualificaiton` VARCHAR(30),
     `education_details` VARCHAR(30),
@@ -47,7 +47,7 @@ CREATE TABLE `personal_information` (
 DROP TABLE IF EXISTS `contract`;
 
 CREATE TABLE `contract` (
-    `employee_code` VARCHAR(20) PRIMARY KEY,
+    `employee_code` VARCHAR(20) NOT NULL,
     `start_date` DATE NOT NULL,
     `end_date` DATE,
     `contract_renewal` DATE
@@ -61,8 +61,7 @@ DROP TABLE IF EXISTS `experience`;
 CREATE TABLE `experience` (
     `employee_code` VARCHAR(20) PRIMARY KEY,
     `with_ircs` VARCHAR(20) NOT NULL,
-    `outside_ircs` VARCHAR(20) NOT NULL,
-    `total_experience` VARCHAR(20) NOT NULL
+    `outside_ircs` VARCHAR(20) NOT NULL
 ) ENGINE = InnoDB;
 
 
@@ -71,7 +70,7 @@ CREATE TABLE `experience` (
 DROP TABLE IF EXISTS `promotion`;
 
 CREATE TABLE `promotion` (
-    `employee_code` VARCHAR(20) PRIMARY KEY,
+    `employee_code` VARCHAR(20) NOT NULL,
     `type` ENUM('Internal','Lateral','External') NOT NULL,
     `date` DATE NOT NULL,
     `details_of_upgradation` VARCHAR(20)
@@ -82,7 +81,7 @@ CREATE TABLE `promotion` (
 DROP TABLE IF EXISTS `officiating_position`;
 
 CREATE TABLE `officiating_position` (
-    `employee_code` VARCHAR(20) PRIMARY KEY,
+    `employee_code` VARCHAR(20) NOT NULL,
     `position` VARCHAR(20) NOT NULL,
     `start_date` DATE NOT NULL,
     `end_date` DATE

@@ -30,10 +30,7 @@ switch($which_table) {
         break;
 
     case "experience-fill":
-        if($_POST["total"] == NULL){
-            $_POST["total"] = (int)$_POST["with_ircs"] + (int)$_POST["outside_ircs"];
-        }
-        $insert_query = "insert into experience values (\"".$_POST["employee_code"]."\",\"".$_POST["with_ircs"]."\",\"".$_POST["outside_ircs"]."\",\"".$_POST["total"]."\")";
+        $insert_query = "insert into experience values (\"".$_POST["employee_code"]."\",\"".$_POST["with_ircs"]."\",\"".$_POST["outside_ircs"]."\")";
         break;
 
     case "contract-fill":
@@ -49,7 +46,7 @@ switch($which_table) {
         break;
 
     case "personal-fill":
-        $insert_query = "insert into personal_information values (\"".$_POST["employee_code"]."\",\"".$_POST["title"]."\",\"".$_POST["name"]."\",\"".$_POST["sex"]."\",\"".date("Y-m-d", strtotime($_POST["dob"]))."\",\"".$_POST["age"]."\",\"".$_POST["staff_classification"]."\",\"".$_POST["designation"]."\",\"".$_POST["reporting_manager"]."\",\"".$_POST["department"]."\",\"".$_POST["location"]."\",\"".date("Y-m-d", strtotime($_POST["date_of_joining"]))."\",\"".$_POST["diversity_status"]."\",\"".$_POST["educational_qualification"]."\",\"".$_POST["education_details"]."\",\"".$_POST["professional_qualification"]."\",\"".$_POST["present_address"]."\",\"".$_POST["permanent_address"]."\",\"".$_POST["city"]."\",\"".$_POST["state"]."\",\"".$_POST["phone"]."\",\"".$_POST["emergency_no"]."\",\"".$_POST["email"]."\",\"".$_POST["marital_status"]."\",\"".$_POST["father_husband_name"]."\",\"".$_POST["father_husband"]."\",\"".$_POST["nominee_name"]."\",\"".$_POST["relationship"]."\",\"".$_POST["bank_name"]."\",\"".$_POST["ifsc_code"]."\",\"".$_POST["acc_no"]."\",\"".$_POST["aadhar_no"]."\",\"".$_POST["pan_no"]."\",\"".$_POST["passport_no"]."\",\"".$_POST["pf_no"]."\",\"".$_POST["uan_no"]."\",\"".date("Y-m-d", strtotime($_POST["last_working_day"]))."\",\"".$_POST["status"]."\")";
+        $insert_query = "insert into personal_information values (\"".$_POST["employee_code"]."\",\"".$_POST["title"]."\",\"".$_POST["name"]."\",\"".$_POST["sex"]."\",\"".date("Y-m-d", strtotime($_POST["dob"]))."\",\"".$_POST["staff_classification"]."\",\"".$_POST["designation"]."\",\"".$_POST["reporting_manager"]."\",\"".$_POST["department"]."\",\"".$_POST["location"]."\",\"".date("Y-m-d", strtotime($_POST["date_of_joining"]))."\",\"".date("Y-m-d", strtotime($_POST["date_of_retirement"]))."\",\"".$_POST["diversity_status"]."\",\"".$_POST["educational_qualification"]."\",\"".$_POST["education_details"]."\",\"".$_POST["professional_qualification"]."\",\"".$_POST["present_address"]."\",\"".$_POST["permanent_address"]."\",\"".$_POST["city"]."\",\"".$_POST["state"]."\",\"".$_POST["phone"]."\",\"".$_POST["emergency_no"]."\",\"".$_POST["email"]."\",\"".$_POST["marital_status"]."\",\"".$_POST["father_husband_name"]."\",\"".$_POST["father_husband"]."\",\"".$_POST["nominee_name"]."\",\"".$_POST["relationship"]."\",\"".$_POST["bank_name"]."\",\"".$_POST["ifsc_code"]."\",\"".$_POST["acc_no"]."\",\"".$_POST["aadhar_no"]."\",\"".$_POST["pan_no"]."\",\"".$_POST["passport_no"]."\",\"".$_POST["pf_no"]."\",\"".$_POST["uan_no"]."\",\"".date("Y-m-d", strtotime($_POST["last_working_day"]))."\",\"".$_POST["status"]."\")";
         break;
 
     default:
