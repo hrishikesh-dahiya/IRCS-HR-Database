@@ -10,11 +10,20 @@ $conn = mysqli_connect($servername, $username, $password, $db);
 if(!$conn) {
     die("Connection failed: ".mysqli_connect_error());
 } else {
-    echo "Connection successful!<br>";
+    // echo "Connection successful!<br>";
 }
 
 function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
+}
+
+function redirect($url) {
+    header("Location: ".$url);
+    exit();
+}
+
+if($_POST["employee_code"] == NULL){
+    redirect("./");
 }
 
 if($_POST["login-btn"] == "register") {
@@ -24,7 +33,7 @@ if($_POST["login-btn"] == "register") {
         return;
     }
     
-    $check_employee = mysqli_query($conn, "select employee_code from credentials where ".$_POST["employee_code"]."\"");
+    $check_employee = mysqli_query($conn, "select employee_code from credentials where employee_code=".$_POST["employee_code"]."\"");
     
     if($check_employee){
         echo "The user exists. Please login <br>";
@@ -40,6 +49,12 @@ if($_POST["login-btn"] == "register") {
         echo "Couldn't be registered <br>";
     }
     return;
+}
+
+$check_employee = mysqli_fetch_row(mysqli_query($conn, "select employee_code from credentials where employee_code=\"".$_POST["employee_code"]."\""));
+
+if(!$check_employee) {
+    redirect("./");
 }
 
 $user_password = mysqli_fetch_row(mysqli_query($conn, "select password from credentials where employee_code=\"".$_POST["employee_code"]."\""))[0];
@@ -72,13 +87,12 @@ mysqli_close($conn);
 	<body>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <a class="navbar-brand" href="#" id="home-btn">IRCS HR Database</a>
+            <a class="navbar-brand" href="#" id="home-btn"><img src="./images/ircs-logo.jpg" height="40" width="40"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <!-- <a class="nav-item nav-link active" id="home" href="#">Home <span class="sr-only">(current)</span></a> -->
                     <a class="nav-item nav-link" id="personal-btn" href="#">Personal Information</a>
                     <a class="nav-item nav-link" id="promotion-btn" href="#">Promotion</a>
                     <a class="nav-item nav-link" id="contract-btn" href="#">Contract</a>
@@ -93,7 +107,9 @@ mysqli_close($conn);
         <br><br><br> 
 
         <div class="container-fluid" id="home">
-            <h1>Welcome to IRCS HR Database</h1>
+            <h1>Welcome to IRCS HR Database</h1><br><br>
+            <h4>You are logged in!</h4>
+            <img src="./images/rcrs.png">
         </div>
 
         
@@ -128,7 +144,10 @@ mysqli_close($conn);
 
                 </div>
                 
-                <div align="center"><button class="btn btn-primary" type="submit" name="submit" value="contract-fill">Submit</button></div><br>
+                <div align="center">
+                    <button class="btn btn-primary" type="submit" name="submit" value="contract-fill">Submit</button>
+                    <button class="btn btn-primary" type="submit" name="submit" value="contract-del">Delete</button>
+                </div><br>
 
                 <br><br>
 
@@ -184,7 +203,10 @@ mysqli_close($conn);
 
                 </div>
                 
-                <div align="center"><button class="btn btn-primary" type="submit" name="submit" value="officiating-fill">Submit</button></div><br>
+                <div align="center">
+                    <button class="btn btn-primary" type="submit" name="submit" value="officiating-fill">Submit</button>
+                    <button class="btn btn-primary" type="submit" name="submit" value="officiating-del">Delete</button>
+                </div><br>
 
             </form>
 
@@ -235,9 +257,10 @@ mysqli_close($conn);
 
                 </div>
                 
-                <div align="center"><button class="btn btn-primary" type="submit" name="submit" value="experience-fill">Submit</button></div><br>
-
-                <br><br>
+                <div align="center">
+                    <button class="btn btn-primary" type="submit" name="submit" value="experience-fill">Submit</button>
+                    <button class="btn btn-primary" type="submit" name="submit" value="experience-del">Delete</button>
+                </div><br>
 
             </form>
 
@@ -306,9 +329,10 @@ mysqli_close($conn);
 
                 </div>
                 
-                <div align="center"><button class="btn btn-primary" type="submit" name="submit" value="promotion-fill">Submit</button></div><br>
-
-                <br><br>
+                <div align="center">
+                    <button class="btn btn-primary" type="submit" name="submit" value="promotion-fill">Submit</button>
+                    <button class="btn btn-primary" type="submit" name="submit" value="promotion-del">Delete</button>
+                </div><br>
 
             </form>
 
@@ -472,9 +496,10 @@ mysqli_close($conn);
 
                 </div>
                 
-                <div align="center"><button class="btn btn-primary" type="submit" name="submit" value="salary-fill">Submit</button></div><br>
-
-                <br><br>
+                <div align="center">
+                    <button class="btn btn-primary" type="submit" name="submit" value="salary-fill">Submit</button>
+                    <button class="btn btn-primary" type="submit" name="submit" value="salary-del">Delete</button>
+                </div><br>
 
             </form>
 
@@ -737,9 +762,10 @@ mysqli_close($conn);
 
                 </div>
                 
-                <div align="center"><button class="btn btn-primary" type="submit" name="submit" value="personal-fill">Submit</button></div><br>
-
-                <br><br>
+                <div align="center">
+                    <button class="btn btn-primary" type="submit" name="submit" value="personal-fill">Submit</button>
+                    <button class="btn btn-primary" type="submit" name="submit" value="personal-del">Delete</button>
+                </div><br>
 
             </form>
 
