@@ -115,7 +115,7 @@ mysqli_close($conn);
         
         <div class="container-fluid" id="contract-form" style="display: none">
             
-            <h2>Contract Form</h2><hr>
+            <h2>Contract</h2><hr>
             <br><br>
 
 
@@ -176,7 +176,7 @@ mysqli_close($conn);
 
         <div class="container-fluid" id="officiating-form" style="display: none">
             
-            <h2>Officiating Position Form</h2><hr>
+            <h2>Officiating Position</h2><hr>
             <br><br>
             <form class="form-horizontal" action="./submit.php" method="post">
                 <div class="form-group row">
@@ -235,7 +235,7 @@ mysqli_close($conn);
 
         <div class="container-fluid" id="experience-form" style="display: none">
             
-            <h2>Experience Form</h2><hr>
+            <h2>Experience</h2><hr>
             <br><br>
             <form class="form-horizontal" action="./submit.php" method="post">
                 <div class="form-group row">
@@ -287,7 +287,7 @@ mysqli_close($conn);
         
         <div class="container-fluid" id="promotion-form" style="display: none">
             
-            <h2>Promotion Form</h2><hr>
+            <h2>Promotion</h2><hr>
             <br><br>
             <form class="form-horizontal" action="./submit.php" method="post">
                 <div class="form-group row">
@@ -359,7 +359,7 @@ mysqli_close($conn);
         
         <div class="container-fluid" id="salary-form" style="display: none">
         
-            <h2>Salary and Allowances Form</h2><hr>
+            <h2>Salary and Allowances</h2><hr>
             <br><br>
             <form class="form-horizontal" action="./submit.php" method="post">
                 <div class="form-group row">
@@ -526,7 +526,7 @@ mysqli_close($conn);
         
         <div class="container-fluid" id="personal-form" style="display: none">
             
-            <h2>Personal Info Form</h2><hr>
+            <h2>Personal Info</h2><hr>
             <br><br>
             <form class="form-horizontal" action="./submit.php" method="post">
                 <div class="form-group row">
